@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitish Kumar - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            font-size: 0.95em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .contact-info a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .content {
+            padding: 50px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #764ba2;
+        }
+        
+        .education-item, .project-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+        
+        .education-item:hover, .project-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .item-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .item-location {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        
+        .item-subtitle {
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 5px;
+        }
+        
+        .item-date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        
+        .project-item ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .project-item li {
+            margin-bottom: 8px;
+            color: #34495e;
+        }
+        
+        .project-item li::marker {
+            color: #667eea;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 8px;
+        }
+        
+        .skill-category p {
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
+        
+        .responsibility-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .responsibility-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .responsibility-title {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .responsibility-subtitle {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+        }
+        
+        .responsibility-desc {
+            color: #34495e;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .header::before {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>NITISH KUMAR</h1>
+            <div class="contact-info">
+                <a href="mailto:nk17.nitish1@gmail.com">✉ nk17.nitish1@gmail.com</a>
+                <span>📞 +91-8227835726</span>
+                <a href="https://www.linkedin.com/in/nitish-kumar-76272b1b6/" target="_blank">🔗 LinkedIn</a>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">EDUCATION</h2>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Indian Institute of Technology (IIT) Delhi</div>
+                            <div class="item-subtitle">M.Tech - Computer Science and Engineering</div>
+                        </div>
+                        <div>
+                            <div class="item-location">New Delhi, India</div>
+                            <div class="item-date">July 2025 - June 2027</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Tezpur University</div>
+                            <div class="item-subtitle">B.Tech - Computer Science and Engineering</div>
+                        </div>
+                        <div>
+                            <div class="item-location">Tezpur, Assam</div>
+                            <div class="item-date">July 2019 - June 2023</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">TECHNICAL PROJECTS</h2>
+                
+                <div class="project-item">
+                    <div class="item-title">Multithreaded Server & Link Scheduling</div>
+                    <ul>
+                        <li>Engineered a high-performance multithreaded server in C++ leveraging POSIX sockets to efficiently handle concurrent file transfers across multiple client connections</li>
+                        <li>Benchmarked FCFS, SJF, and Round-Robin scheduling algorithms, analyzing response time and throughput metrics under varying network loads to optimize server performance</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="item-title">Concurrent Load Balancer</div>
+                    <ul>
+                        <li>Architected a scalable load balancer to intelligently distribute incoming requests across multiple backend servers, ensuring 99.9% availability and optimal resource utilization</li>
+                        <li>Deployed two distinct load-balancing algorithms with integrated health-check mechanisms enabling dynamic traffic management and automatic failover capabilities</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="item-title">Software-Defined Networking (SDN) Controller</div>
+                    <ul>
+                        <li>Designed and implemented SDN controllers using the Ryu framework for programmatic network traffic management, enabling centralized control of network infrastructure</li>
+                        <li>Evolved architecture from basic L2 learning switch to congestion-aware controller utilizing real-time link utilization data to compute optimal paths and reduce network latency by 40%</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="item-title">BGP Routing & Network Resilience Simulation</div>
+                    <ul>
+                        <li>Simulated complex inter-domain routing scenarios using ns-3, demonstrating BGP's shortest AS-path selection and policy-based routing in multi-autonomous-system environments</li>
+                        <li>Engineered dynamic link failure and recovery events; leveraged FlowMonitor tool to analyze packet loss patterns and latency metrics, validating network resilience strategies</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="item-title">AI Agent for Rivers and Stones Strategic Board Game</div>
+                    <ul>
+                        <li>Implemented a competitive AI agent using Minimax algorithm with Alpha-Beta pruning, achieving 85% win rate against baseline strategies through efficient game tree exploration</li>
+                        <li>Developed custom heuristic evaluation function and integrated adaptive depth search with dynamic time management to optimize decision-making in time-constrained scenarios</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">TECHNICAL SKILLS</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <p>C, C++, Python, SQL</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Frameworks & Tools</h3>
+                        <p>ns-3, Ryu, Git, FlowMonitor, POSIX Sockets</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">LEADERSHIP & RESPONSIBILITY</h2>
+                
+                <div class="responsibility-item">
+                    <div class="responsibility-title">Teaching Assistant (TA)</div>
+                    <div class="responsibility-subtitle">Data Structures and Algorithms</div>
+                    <div class="responsibility-desc">Mentored 80+ undergraduate students through lab sessions and office hours, providing comprehensive academic support for core DSA coursework while developing instructional materials and grading assessments</div>
+                </div>
+                
+                <div class="responsibility-item">
+                    <div class="responsibility-title">NSS Student Coordinator</div>
+                    <div class="responsibility-subtitle">National Service Scheme</div>
+                    <div class="responsibility-desc">Spearheaded organization and execution of campus-wide community service events and social awareness programs, coordinating teams of 50+ volunteers to create positive community impact</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
